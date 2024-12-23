@@ -1,5 +1,11 @@
 # Analyse Différentielle sur un Schéma de Feistel
 
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
+[![License](https://img.shields.io/github/license/Ekole237/Freistel)](https://github.com/Ekole237/Freistel/blob/main/LICENSE)
+[![GitHub Issues](https://img.shields.io/github/issues/Ekole237/Freistel)](https://github.com/Ekole237/Freistel/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Ekole237/Freistel)](https://github.com/Ekole237/Freistel/pulls)
+[![Last Commit](https://img.shields.io/github/last-commit/Ekole237/Freistel)](https://github.com/Ekole237/Freistel/commits/main)
+
 Ce projet implémente une simulation d'attaque par analyse différentielle sur un schéma de Feistel, permettant d'étudier les vulnérabilités potentielles des algorithmes de chiffrement basés sur cette structure.
 
 ## 🎯 Objectifs du Projet
