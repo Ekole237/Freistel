@@ -15,11 +15,22 @@ Ce projet implémente une simulation d'attaque par analyse différentielle sur u
 - Générer des rapports détaillés avec visualisations et analyses approfondies
 - Fournir des explications accessibles pour les experts et non-experts
 
+## 🔒 Concepts Cryptographiques
+
+### Schéma de Feistel
+Le schéma de Feistel est une structure utilisée dans de nombreux algorithmes de chiffrement par bloc (comme DES). Il divise le bloc d'entrée en deux moitiés et applique une série de transformations répétées appelées "tours". Chaque tour utilise une fonction F et une sous-clé pour transformer les données.
+
+### Analyse Différentielle
+L'analyse différentielle est une technique de cryptanalyse qui :
+- Étudie comment les différences dans les entrées affectent les différences en sortie
+- Exploite les biais statistiques dans la distribution des différences
+- Peut révéler des faiblesses dans la conception du chiffrement
+
 ## 🛠️ Installation
 
 1. Cloner le dépôt :
 ```bash
-git clone https://github.com/votre-username/Freistel.git
+git clone https://github.com/Ekole237/Freistel.git
 cd Freistel
 ```
 
@@ -42,22 +53,30 @@ pip install -r requirements.txt
 
 ## 🚀 Utilisation
 
-1. Exécuter l'analyse différentielle :
+### Exécution de l'Analyse
+
 ```bash
 python src/main.py
 ```
-Cette commande effectue une simulation de l'attaque différentielle sur le schéma de Feistel.
 
-2. Générer un rapport détaillé :
+Cette commande :
+1. Initialise un chiffrement de Feistel avec des paramètres configurables
+2. Génère des paires de textes avec des différences spécifiques
+3. Analyse la propagation des différences à travers le chiffrement
+4. Collecte des statistiques sur les différences en sortie
+
+### Génération du Rapport
+
 ```bash
 python src/generate_report.py
 ```
-Cette commande génère un rapport complet avec :
-- Une introduction aux schémas de Feistel
-- Une description détaillée de l'attaque
-- Des visualisations des résultats
-- Une analyse approfondie par GPT-4
-- Des explications accessibles aux non-experts
+
+Le rapport généré inclut :
+- Une introduction théorique aux schémas de Feistel
+- Les détails de l'attaque différentielle réalisée
+- Des visualisations interactives des résultats
+- Une analyse approfondie générée par GPT-4
+- Des explications adaptées aux différents niveaux d'expertise
 
 ## 📊 Structure du Projet
 
@@ -65,49 +84,52 @@ Cette commande génère un rapport complet avec :
 Freistel/
 ├── src/
 │   ├── feistel.py          # Implémentation du schéma de Feistel
-│   ├── differential.py     # Code pour l'analyse différentielle
-│   ├── report_generator.py # Générateur de rapports avec visualisations
+│   ├── differential.py     # Analyse différentielle
+│   ├── report_generator.py # Générateur de rapports
 │   ├── main.py            # Point d'entrée principal
-│   └── generate_report.py  # Script de génération de rapports
-├── tests/                  # Tests unitaires
-├── docs/                   # Documentation supplémentaire
-├── results/               # Rapports et visualisations générés
-├── requirements.txt       # Dépendances du projet
-├── .env.example          # Exemple de configuration
-└── README.md             # Ce fichier
+│   └── generate_report.py  # Script de génération
+├── results/               # Rapports et visualisations
+├── requirements.txt       # Dépendances
+└── .env                  # Configuration (API keys)
 ```
 
-## 📝 Fonctionnalités
+### Composants Principaux
 
-### Schéma de Feistel
+#### 1. Schéma de Feistel (`feistel.py`)
 - Implémentation modulaire et configurable
 - Support de différentes fonctions de tour
 - Paramètres ajustables (nombre de tours, taille de bloc)
 
-### Analyse Différentielle
-- Génération automatique de paires de textes
-- Analyse statistique des différences
+#### 2. Analyse Différentielle (`differential.py`)
+- Génération de paires de textes avec différences contrôlées
+- Analyse statistique des différences en sortie
 - Détection des biais cryptographiques
 
-### Génération de Rapports
-- Visualisations interactives et explicatives
-- Graphiques de distribution des différences
-- Analyse comparative des probabilités
-- Explications générées par IA pour différents niveaux d'expertise
+#### 3. Génération de Rapports (`report_generator.py`)
+- Visualisations détaillées des résultats
+- Intégration avec GPT-4 pour les analyses
+- Support multilingue (français/anglais)
 
 ## 📈 Visualisations
 
-Le projet génère deux types principaux de visualisations :
+Le projet génère deux types de visualisations principales :
 
-1. **Distribution des Différences** :
-   - Montre la répartition des différences en sortie
-   - Met en évidence les biais statistiques
-   - Inclut des annotations explicatives
+### 1. Distribution des Différences
+- Histogramme des différences en sortie
+- Mise en évidence des biais statistiques
+- Annotations explicatives des pics significatifs
 
-2. **Analyse des Probabilités** :
-   - Compare les probabilités observées vs théoriques
-   - Utilise une échelle logarithmique pour une meilleure lisibilité
-   - Affiche le facteur de biais de l'attaque
+### 2. Analyse des Probabilités
+- Comparaison avec la distribution théorique
+- Échelle logarithmique pour une meilleure lisibilité
+- Calcul et affichage du facteur de biais
+
+## 🔍 Résultats Typiques
+
+L'analyse permet de :
+- Identifier les différences qui se propagent avec des probabilités non uniformes
+- Quantifier la résistance du chiffrement aux attaques différentielles
+- Suggérer des améliorations pour renforcer la sécurité
 
 ## 🤝 Contribution
 
@@ -119,9 +141,11 @@ Les contributions sont les bienvenues ! Pour contribuer :
 4. Pousser vers la branche
 5. Ouvrir une Pull Request
 
-## 📜 Licence
-
-[À définir]
+### Domaines d'Amélioration
+- Ajout de nouveaux types d'analyses
+- Optimisation des performances
+- Amélioration des visualisations
+- Documentation multilingue
 
 ## 📚 Références
 
@@ -129,3 +153,11 @@ Les contributions sont les bienvenues ! Pour contribuer :
 2. Feistel, H. (1973). Cryptography and Computer Privacy.
 3. [Documentation OpenAI](https://platform.openai.com/docs/api-reference)
 4. [Documentation Matplotlib](https://matplotlib.org/)
+
+## 📜 Licence
+
+Ce projet est sous licence [MIT](LICENSE).
+
+---
+
+*Développé dans le cadre d'un projet de recherche en cryptanalyse*
